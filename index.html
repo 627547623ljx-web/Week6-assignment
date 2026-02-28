@@ -22,7 +22,7 @@
 
     <!-- 顶部大图 -->
     <section class="hero-section">
-        <!-- 请替换 src 为你的实际合照路径 -->
+        <!-- 保持原文件名 -->
         <img src="top-image.jpg" alt="三只猫咪的大合照" class="hero-img">
     </section>
 
@@ -42,21 +42,21 @@
             <button class="carousel-btn prev-btn" id="prevBtn" aria-label="上一张图片">←</button>
             <div class="carousel-view">
                 <div class="carousel-track" id="carouselTrack">
-                    <!-- 轮播图片项 (请替换 src) -->
+                    <!-- 保持原文件名 -->
                     <div class="carousel-item">
-                        <img src="slide1.jpg" alt="猫咪玩耍瞬间" class="carousel-img">
+                        <img src="slide1.jpg" alt="猫咪瞬间1" class="carousel-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="slide2.jpg" alt="猫咪睡觉瞬间" class="carousel-img">
+                        <img src="slide2.jpg" alt="猫咪瞬间2" class="carousel-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="slide3.jpg" alt="猫咪吃饭瞬间" class="carousel-img">
+                        <img src="slide3.jpg" alt="猫咪瞬间3" class="carousel-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="slide4.jpg" alt="猫咪发呆瞬间" class="carousel-img">
+                        <img src="slide4.jpg" alt="猫咪瞬间4" class="carousel-img">
                     </div>
                     <div class="carousel-item">
-                        <img src="slide5.jpg" alt="猫咪撒娇瞬间" class="carousel-img">
+                        <img src="slide5.jpg" alt="猫咪瞬间5" class="carousel-img">
                     </div>
                 </div>
             </div>
@@ -74,7 +74,8 @@
         <div class="cat-container">
             <!-- 肉泥 -->
             <article class="cat-card">
-                <img src="nini.jpg" alt="英短蓝猫肉泥" class="cat-img">
+                <!-- 保持原文件名 -->
+                <img src="nini.jpg" alt="肉泥" class="cat-img">
                 <div class="cat-info">
                     <h3>Nini | 肉泥</h3>
                     <p><strong>Age | 年龄：</strong>6岁</p>
@@ -92,7 +93,8 @@
 
             <!-- 肉酱 -->
             <article class="cat-card">
-                <img src="jiangjiang.jpg" alt="英短蓝猫肉酱" class="cat-img">
+                <!-- 保持原文件名 -->
+                <img src="jiangjiang.jpg" alt="肉酱" class="cat-img">
                 <div class="cat-info">
                     <h3>Jiangjiang | 肉酱</h3>
                     <p><strong>Age | 年龄：</strong>6岁</p>
@@ -110,7 +112,8 @@
 
             <!-- 肉沫 -->
             <article class="cat-card">
-                <img src="momo.jpg" alt="米努特猫肉沫" class="cat-img">
+                <!-- 保持原文件名 -->
+                <img src="momo.jpg" alt="肉沫" class="cat-img">
                 <div class="cat-info">
                     <h3>Momo | 肉沫</h3>
                     <p><strong>Age | 年龄：</strong>2个月</p>
@@ -135,10 +138,11 @@
             <hr>
         </div>
         <div class="video-container">
-            <!-- 请替换 src 为你的实际视频路径，poster 为封面图路径 -->
-            <video class="cat-video" controls poster="video-cover.jpg" preload="metadata">
+            <!-- 保持原视频文件名，添加 controls 以便播放 -->
+            <!-- 如果您的视频文件名不是 cats-daily.mp4，请在此处修改 src -->
+            <video class="cat-video" controls poster="" preload="metadata">
                 <source src="cats-daily.mp4" type="video/mp4">
-                您的浏览器不支持视频播放，请升级浏览器或更换设备查看 | Your browser does not support video playback.
+                您的浏览器不支持视频播放。
             </video>
             <p class="video-desc">Daily life of three cats | 三只猫咪的日常瞬间</p>
         </div>
@@ -148,13 +152,14 @@
         <p>&copy; 2024 My Three Cats. All rights reserved.</p>
     </footer>
 
-    <!-- 整合后的 JavaScript 逻辑 -->
+    <!-- 整合后的 JavaScript 逻辑 (保留了您原始的文案和文件名) -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // ================= 弹窗逻辑 (原 tc.js 内容) =================
+            // ================= 弹窗逻辑 =================
             const popupConfig = [
                 {
-                    img: "弹窗图1.jpg", // 请确保图片路径正确
+                    // 保持原始中文文件名
+                    img: "弹窗图1.jpg", 
                     text: "Hi！看看我性感的大PP😺 "
                 },
                 {
@@ -172,7 +177,7 @@
             const popupText = document.getElementById('popupText');
             const popupCloseBtn = document.getElementById('popupCloseBtn');
 
-            // 检查是否已经关闭过弹窗 (使用 localStorage)
+            // 检查是否已经关闭过弹窗
             const hasClosedPopup = localStorage.getItem('catPopupClosed');
 
             if (!hasClosedPopup && popupConfig.length > 0) {
@@ -181,10 +186,10 @@
                 
                 // 设置内容
                 popupImg.src = randomPopup.img;
-                popupImg.alt = "猫咪弹窗图片";
+                popupImg.alt = "猫咪弹窗";
                 popupText.textContent = randomPopup.text;
 
-                // 显示弹窗 (添加延迟以确保页面加载完成)
+                // 显示弹窗
                 setTimeout(() => {
                     popupOverlay.classList.add('active');
                 }, 500);
@@ -193,7 +198,6 @@
             // 关闭弹窗逻辑
             function closePopup() {
                 popupOverlay.classList.remove('active');
-                // 记录用户已关闭，下次刷新不再显示
                 localStorage.setItem('catPopupClosed', 'true');
             }
 
@@ -201,7 +205,6 @@
                 popupCloseBtn.addEventListener('click', closePopup);
             }
 
-            // 点击遮罩层也可以关闭
             if (popupOverlay) {
                 popupOverlay.addEventListener('click', (e) => {
                     if (e.target === popupOverlay) {
@@ -220,27 +223,22 @@
                 const items = Array.from(track.children);
                 const totalItems = items.length;
 
-                // 获取当前可见数量 (根据 CSS 逻辑动态计算)
                 const getVisibleItems = () => {
                     return window.innerWidth <= 768 ? 1 : 3;
                 };
 
                 const updateCarousel = () => {
                     const visibleItems = getVisibleItems();
-                    // 如果元素还没渲染好，暂时不执行
                     if(items.length === 0) return;
                     
                     const itemWidth = items[0].getBoundingClientRect().width;
-                    const gap = 16; // 对应 CSS gap
+                    const gap = 16; 
                     
-                    // 限制索引范围
                     const maxIndex = totalItems - visibleItems;
                     if (currentIndex < 0) currentIndex = 0;
                     if (currentIndex > maxIndex) currentIndex = maxIndex;
 
-                    // 计算移动距离
                     const moveDistance = currentIndex * (itemWidth + gap); 
-                    
                     track.style.transform = `translateX(-${moveDistance}px)`;
                 };
 
@@ -259,7 +257,6 @@
                     }
                 });
 
-                // 窗口大小改变时重置轮播位置，防止错位
                 let resizeTimeout;
                 window.addEventListener('resize', () => {
                     clearTimeout(resizeTimeout);
@@ -269,8 +266,6 @@
                     }, 200);
                 });
 
-                // 初始化
-                // 使用 requestAnimationFrame 确保 DOM 完全渲染后再计算
                 requestAnimationFrame(updateCarousel);
             }
         });
