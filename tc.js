@@ -25,15 +25,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 检查元素是否存在，防止报错
     if (popupOverlay && popupImg && popupText && popupCloseBtn) {
-        // 移除 localStorage 状态检查，每次刷新都显示弹窗
+        // 【核心修改1】移除 localStorage 状态记录，确保每次刷新都随机显示
+        // 删掉原有的 hasClosedPopup 检查逻辑
+        
         if (popupConfig.length > 0) {
-            // 随机选择一个弹窗内容
+            // 【核心修改2】强化随机数生成，避免边界值问题
+            // 生成 0 到 2（包含）的随机整数，确保覆盖所有3个配置
             const randomIndex = Math.floor(Math.random() * popupConfig.length);
             const randomPopup = popupConfig[randomIndex];
+            
+            // 【新增】调试日志，确认随机索引和选中的配置（上线可删除）
+            console.log('当前随机索引：', randomIndex);
+            console.log('选中的弹窗配置：', randomPopup);
             
             // 设置图片源和文字
             popupImg.src = randomPopup.img;
             popupImg.alt = "猫咪弹窗";
+            // 【新增】图片加载失败容错
+            popupImg.onerror = () => {
+                console.error(`图片加载失败：${randomPopup.img}，请检查路径/文件名`);
+                // 加载失败时自动切换下一张
+                const fallbackIndex = (randomIndex + 1) % popupConfig.length;
+                popupImg.src = popupConfig[fallbackIndex].img;
+                popupText.textContent = popupConfig[fallbackIndex].text;
+            };
             popupText.textContent = randomPopup.text;
 
             // 延迟 500ms 显示，确保动画流畅
@@ -42,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         }
 
-        // 关闭弹窗函数（仅移除active类，不再记录localStorage）
+        // 关闭弹窗函数（仅隐藏，不记录状态）
         function closePopup() {
             popupOverlay.classList.remove('active');
-            // 注释/删除 localStorage 记录逻辑，实现刷新重新显示
+            // 【核心修改3】删除 localStorage 记录，避免关闭后不再显示
             // localStorage.setItem('catPopupClosed', 'true');
         }
 
