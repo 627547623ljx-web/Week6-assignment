@@ -12,58 +12,37 @@ body {
     line-height: 1.6;
 }
 
-/* 头部横幅样式 - 核心修复 */
+/* 头部横幅样式（仅保留图片） */
 .header-banner {
-    position: relative;
     width: 100%;
-    /* 修复1：高度改为auto，让图片自适应，避免裁剪 */
-    height: auto;
-    /* 修复2：移除overflow:hidden，防止图片被截断 */
-    /* overflow: hidden; */
 }
 
 .banner-img {
     width: 100%;
-    /* 修复3：高度改为auto，保持图片原始比例 */
     height: auto;
-    /* 可选：如果希望图片占满宽度且保持比例，用object-fit: cover，但不裁剪 */
     object-fit: contain;
 }
 
-.banner-text {
-    position: absolute;
-    /* 修复4：调整top为50%，确保垂直居中，且不偏移 */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+/* 新增：独立标题模块样式（大图和轮播之间） */
+.main-title-section {
+    background-color: #f8f5f0;
+    padding: 2.5rem 1rem; /* 上下2.5rem，左右1rem，留出足够空间 */
     text-align: center;
-    color: white;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    /* 修复5：增加z-index，确保文字在图片上方且不被遮挡 */
-    z-index: 10;
-    /* 修复6：限制文字宽度，避免超出图片 */
-    width: 90%;
-    max-width: 800px;
+    margin: 1rem 0; /* 与上下模块的间距 */
 }
 
-.banner-text h1 {
-    font-size: 2.5rem;
+.main-title-content h1 {
+    font-size: 2.2rem;
     font-weight: 700;
+    color: #8b5a2b;
     line-height: 1.5;
     margin-bottom: 1rem;
-    /* 修复7：增加文字背景半透明，提升可读性，且不覆盖图片细节 */
-    background-color: rgba(0,0,0,0.3);
-    padding: 10px 20px;
-    border-radius: 8px;
 }
 
-.banner-text p {
-    font-size: 1.2rem;
+.main-title-content p {
+    font-size: 1.1rem;
+    color: #666;
     font-weight: 400;
-    /* 同上，增加半透明背景 */
-    background-color: rgba(0,0,0,0.2);
-    padding: 5px 10px;
-    border-radius: 4px;
 }
 
 /* 弹窗样式 */
@@ -322,11 +301,11 @@ body {
 
 /* 响应式适配 */
 @media (max-width: 768px) {
-    /* 横幅适配 */
-    .banner-text h1 {
+    /* 独立标题模块适配 */
+    .main-title-content h1 {
         font-size: 1.8rem;
     }
-    .banner-text p {
+    .main-title-content p {
         font-size: 1rem;
     }
 
@@ -351,9 +330,11 @@ body {
 }
 
 @media (max-width: 480px) {
-    .header-banner {
-        /* 移动端也保持auto，避免裁剪 */
-        height: auto;
+    .main-title-section {
+        padding: 1.5rem 1rem; /* 移动端减少上下padding，保持美观 */
+    }
+    .main-title-content h1 {
+        font-size: 1.5rem;
     }
 
     .carousel-item {
