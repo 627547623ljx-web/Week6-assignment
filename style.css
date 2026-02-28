@@ -23,19 +23,18 @@ body {
     object-fit: contain;
 }
 
-/* 新增：独立标题模块样式（大图和轮播之间）- 修正居中 */
+/* 独立标题模块样式（大图和轮播之间） */
 .main-title-section {
     background-color: #f8f5f0;
-    padding: 2.5rem 1rem; /* 上下2.5rem，左右1rem，留出足够空间 */
-    text-align: center; /* 核心：文字水平居中 */
-    margin: 1rem 0; /* 与上下模块的间距 */
-    width: 100%; /* 确保占满宽度 */
+    padding: 2.5rem 1rem;
+    text-align: center;
+    margin: 1rem 0;
+    width: 100%;
 }
 
 .main-title-content {
-    /* 新增：确保容器本身也居中，适配所有屏幕 */
     margin: 0 auto;
-    max-width: 1200px; /* 和轮播模块宽度一致，视觉更统一 */
+    max-width: 1200px;
 }
 
 .main-title-content h1 {
@@ -44,7 +43,6 @@ body {
     color: #8b5a2b;
     line-height: 1.5;
     margin-bottom: 1rem;
-    /* 确保标题文字本身居中 */
     text-align: center;
 }
 
@@ -52,9 +50,8 @@ body {
     font-size: 1.1rem;
     color: #666;
     font-weight: 400;
-    /* 确保副标题文字本身居中 */
     text-align: center;
-    margin: 0 auto; /* 兜底：适配特殊情况 */
+    margin: 0 auto;
 }
 
 /* 弹窗样式 */
@@ -203,7 +200,7 @@ body {
     width: 100%;
     aspect-ratio: 3 / 2;
     object-fit: cover;
-    border-radius: 8px;
+    border-radius: 12px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     display: block;
 }
@@ -240,6 +237,7 @@ body {
     width: 100%;
     height: 300px;
     object-fit: cover;
+    border-radius: 12px 12px 0 0;
 }
 
 .profile-info {
@@ -275,7 +273,7 @@ body {
     font-size: 0.9rem;
 }
 
-/* 猫咪视频样式 */
+/* 猫咪视频样式（核心优化：固定宽高比，确保封面/视频尺寸一致） */
 .cat-videos-section {
     max-width: 800px;
     margin: 0 auto 3rem;
@@ -284,18 +282,31 @@ body {
 
 .video-container {
     text-align: center;
-}
-
-.cat-video {
+    /* 新增：固定视频容器宽高比（16:9，适配绝大多数视频） */
+    position: relative;
     width: 100%;
+    aspect-ratio: 16 / 9;
     border-radius: 12px;
+    overflow: hidden;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
+.cat-video {
+    /* 核心：让视频填满容器，尺寸和封面（第一帧）完全一致 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+}
+
 .video-desc {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     font-size: 1rem;
     color: #666;
+    text-align: center;
 }
 
 /* 页脚样式 */
@@ -334,16 +345,11 @@ body {
         width: 100%;
         margin-bottom: 1.5rem;
     }
-
-    /* 视频适配 */
-    .cat-video {
-        height: auto;
-    }
 }
 
 @media (max-width: 480px) {
     .main-title-section {
-        padding: 1.5rem 1rem; /* 移动端减少上下padding，保持美观 */
+        padding: 1.5rem 1rem;
     }
     .main-title-content h1 {
         font-size: 1.5rem;
@@ -356,5 +362,9 @@ body {
     .profile-img {
         height: 250px;
     }
-}
 
+    /* 视频容器移动端适配 */
+    .video-container {
+        aspect-ratio: 9 / 16; /* 竖屏视频适配，可根据你的视频实际比例调整 */
+    }
+}
