@@ -7,20 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 头部横幅（仅保留图片，移除文字） -->
+    <!-- 头部横幅（适配：顶部大图.jpg） -->
     <header class="header-banner">
         <img src="顶部大图.jpg" alt="三只猫咪合影" class="banner-img" loading="lazy">
-    </header>
-
-    <!-- 新增：独立的标题模块（放在大图和轮播之间） -->
-    <section class="main-title-section">
-        <div class="main-title-content">
+        <div class="banner-text">
             <h1>🐱 My Three Cats | 我家的三只猫主子 🐱</h1>
             <p>Record every lovely moment | 记录每一只小可爱的专属时光</p>
         </div>
-    </section>
+    </header>
 
-    <!-- 弹窗模块 -->
+    <!-- 弹窗模块（文件名匹配：弹窗图1/2/3.jpg） -->
     <div id="popupOverlay" class="popup-overlay">
         <div class="popup-content">
             <img id="popupImg" src="" alt="猫咪弹窗" class="popup-img" loading="lazy">
@@ -29,7 +25,7 @@
         </div>
     </div>
 
-    <!-- 轮播图区域 -->
+    <!-- 轮播图区域（适配混合格式：png/jpg） -->
     <section class="carousel-section">
         <div class="section-title">
             <h2>Cat Moments | 猫咪瞬间</h2>
@@ -90,14 +86,14 @@
         </div>
     </section>
 
-    <!-- 猫咪档案区域 -->
+    <!-- 猫咪档案区域（适配：档案1/2.jpg、档案3.png） -->
     <section class="cat-profiles-section">
         <div class="section-title">
             <h2>Cat Profiles | 猫咪档案</h2>
             <hr>
         </div>
         <div class="cat-profiles">
-            <!-- 肉泥档案 -->
+            <!-- 肉泥档案（档案1.jpg） -->
             <div class="cat-profile-card">
                 <img src="档案1.jpg" alt="肉泥" class="profile-img" loading="lazy">
                 <div class="profile-info">
@@ -116,7 +112,7 @@
                 </div>
             </div>
 
-            <!-- 肉酱档案 -->
+            <!-- 肉酱档案（档案2.jpg） -->
             <div class="cat-profile-card">
                 <img src="档案2.jpg" alt="肉酱" class="profile-img" loading="lazy">
                 <div class="profile-info">
@@ -135,7 +131,7 @@
                 </div>
             </div>
 
-            <!-- 肉沫档案 -->
+            <!-- 肉沫档案（档案3.png） -->
             <div class="cat-profile-card">
                 <img src="档案3.png" alt="肉沫" class="profile-img" loading="lazy">
                 <div class="profile-info">
@@ -156,7 +152,7 @@
         </div>
     </section>
 
-    <!-- 猫咪视频区域 -->
+    <!-- 猫咪视频区域（适配：底部视频.mp4，视频封面复用弹窗图1.jpg） -->
     <section class="cat-videos-section">
         <div class="section-title">
             <h2>Cat Videos | 猫咪日常视频</h2>
