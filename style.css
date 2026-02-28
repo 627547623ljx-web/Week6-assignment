@@ -1,0 +1,365 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "微软雅黑", Arial, sans-serif;
+}
+
+/* 页面背景和整体布局 */
+body {
+    background-color: #f9f7f5;
+    color: #333;
+    line-height: 1.6;
+    padding-bottom: 2rem;
+}
+
+/* ===================== 新增：弹窗样式 ===================== */
+/* 弹窗遮罩层 */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 确保弹窗在最上层 */
+}
+
+/* 弹窗容器 */
+.popup-container {
+    background-color: white;
+    width: 90%;
+    max-width: 450px;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 弹窗图片 */
+.popup-img-box {
+    margin-bottom: 1rem;
+}
+
+.popup-img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* 弹窗提示文本 */
+.popup-text {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+/* 弹窗关闭按钮 */
+.popup-close-btn {
+    padding: 0.8rem 2rem;
+    background-color: #e8c8a0;
+    color: #8b5a2b;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.popup-close-btn:hover {
+    background-color: #8b5a2b;
+    color: white;
+}
+
+/* ===================== 原有样式 ===================== */
+/* 顶部合照大图样式 */
+.hero-section {
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+/* 轮播区域样式 */
+.carousel-section {
+    max-width: 1200px;
+    margin: 2rem auto 3rem;
+    padding: 0 1rem;
+}
+
+/* 轮播容器（包含箭头+图片） */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* 轮播箭头按钮 */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 1.2rem;
+    color: #8b5a2b;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: #e8c8a0;
+    color: white;
+}
+
+/* 左箭头位置 */
+.prev-btn {
+    left: 10px; /* 调整为内侧，避免超出屏幕 */
+}
+
+/* 右箭头位置 */
+.next-btn {
+    right: 10px; /* 调整为内侧，避免超出屏幕 */
+}
+
+/* 轮播可视窗口：只显示3张图 */
+.carousel-view {
+    width: 100%;
+    overflow: hidden;
+    padding: 0 20px; /* 给箭头留空间，避免遮挡图片 */
+}
+
+/* 轮播轨道（所有图片容器） */
+.carousel-track {
+    display: flex;
+    gap: 16px; /* 图片之间的间距 */
+    transition: transform 0.5s ease;
+    width: fit-content; /* 关键：让轨道宽度自适应所有图片 */
+}
+
+/* 单张轮播图片容器 - 核心修复 */
+.carousel-item {
+    flex: 0 0 calc((100% - 32px) / 3); /* 3张图 + 2个16px间距，均分宽度 */
+    box-sizing: border-box; /* 确保padding/border不影响宽度计算 */
+}
+
+/* 轮播图片样式 - 适配3:2比例 */
+.carousel-img {
+    width: 100%;
+    aspect-ratio: 3 / 2; /* 强制3:2比例，匹配你的图片 */
+    object-fit: cover; /* 保持比例，裁剪多余部分，不拉伸 */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: block; /* 去除图片默认空隙 */
+}
+
+/* 响应式适配：手机端强制显示3张（缩小间距） */
+@media (max-width: 768px) {
+    .carousel-item {
+        flex: 0 0 calc((100% - 16px) / 3); /* 间距改为8px */
+    }
+    .carousel-track {
+        gap: 8px;
+    }
+    .carousel-img {
+        aspect-ratio: 3 / 2; /* 保持3:2比例 */
+    }
+}
+
+/* 单张轮播图片容器 */
+.carousel-item {
+  /* 3张图 + 2个间距（16px * 2），确保3张图并排 */
+  flex: 0 0 calc((100% - 32px) / 3);
+}
+
+/* 轮播图片样式 */
+.carousel-img {
+  width: 100%;
+  /* 3:2 比例：宽度100%，高度 = 宽度 * 2/3 */
+  aspect-ratio: 3 / 2;
+  object-fit: cover; /* 保持3:2比例，裁剪多余部分 */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* 头部标题区域 */
+header {
+    background-color: #e8c8a0;
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 3rem;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #8b5a2b;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1rem;
+    color: #666;
+}
+
+/* 通用区域标题样式（h2） */
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: #8b5a2b;
+    margin-bottom: 0.8rem;
+}
+
+.section-title hr {
+    width: 80px;
+    height: 2px;
+    background-color: #e8c8a0;
+    border: none;
+    margin: 0 auto;
+}
+
+/* 猫咪卡片容器 */
+.cat-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto 4rem;
+}
+
+/* 单个猫咪卡片样式 */
+.cat-card {
+    background-color: white;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.cat-card:hover {
+    transform: translateY(-5px);
+}
+
+/* 猫咪图片样式 */
+.cat-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* 猫咪信息区域 */
+.cat-info {
+    padding: 1.5rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #8b5a2b;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.cat-info p {
+    margin-bottom: 0.5rem;
+}
+
+/* 性格标签样式 */
+.tag {
+    display: inline-block;
+    background-color: #f0e6d2;
+    color: #8b5a2b;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    margin: 0.3rem 0.3rem 0 0;
+}
+
+/* 小趣事文本样式 */
+.fun-fact {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* 视频模块样式 */
+.video-section {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    padding: 0 1rem;
+}
+
+.video-container {
+    text-align: center;
+}
+
+.cat-video {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.video-desc {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+/* 页脚样式 */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #666;
+    background-color: #e8c8a0;
+    margin-top: 2rem;
+}
+
+/* 响应式适配：手机端调整 */
+@media (max-width: 768px) {
+    /* 手机端弹窗适配 */
+    .popup-container {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    /* 手机端轮播只显示1张 */
+    .carousel-item {
+        flex: 0 0 90%;
+    }
+    /* 手机端箭头位置调整 */
+    .prev-btn {
+        left: 10px;
+    }
+    .next-btn {
+        right: 10px;
+    }
+    /* 轮播图片高度调整 */
+    .carousel-img {
+        height: 180px;
+    }
+}

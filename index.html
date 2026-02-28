@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Three Cats | 我家的三只猫主子</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 新增：首次打开弹窗 -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-container">
+            <!-- 弹窗图片区域 -->
+            <div class="popup-img-box">
+                <img src="弹窗图1.jpg" alt="弹窗猫咪1" class="popup-img" id="popupImg">
+            </div>
+            <!-- 弹窗提示文本 -->
+            <div class="popup-text" id="popupText">
+                Hi！看看我性感的大PP😺 
+            </div>
+            <!-- 弹窗关闭按钮 -->
+            <button class="popup-close-btn" id="popupCloseBtn">关闭</button>
+        </div>
+    </div>
+
+    <!-- 顶部猫咪合照大图区域 -->
+    <section class="hero-section">
+        <img src="顶部大图.jpg" alt="猫咪合照" class="hero-img">
+    </section>
+
+<!-- 自动+手动轮播图片区域 -->
+<section class="carousel-section">
+    <div class="section-title">
+        <h2>Cat Moments | 猫咪瞬间</h2>
+        <hr>
+    </div>
+    <div class="carousel-container">
+        <button class="carousel-btn prev-btn" id="prevBtn">←</button>
+        <div class="carousel-view">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-item">
+                    <img src="轮播图1.png" alt="猫咪照片1" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图2.png" alt="猫咪照片2" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图3.jpg" alt="猫咪照片3" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图4.jpg" alt="猫咪照片4" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图5.jpg" alt="猫咪照片5" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图6.jpg" alt="猫咪照片6" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图7.jpg" alt="猫咪照片7" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图8.jpg" alt="猫咪照片8" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图9.jpg" alt="猫咪照片9" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图10.jpg" alt="猫咪照片10" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图11.jpg" alt="猫咪照片11" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图12.jpg" alt="猫咪照片12" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图13.jpg" alt="猫咪照片13" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图14.png" alt="猫咪照片14" class="carousel-img">
+                </div>
+                <div class="carousel-item">
+                    <img src="轮播图15.png" alt="猫咪照片15" class="carousel-img">
+                </div>
+            </div>
+        </div>
+        <button class="carousel-btn next-btn" id="nextBtn">→</button>
+    </div>
+</section>
+
+    <!-- 原页面头部 -->
+    <header>
+        <h1>🐱 My Three Cats | 我家的三只猫主子 🐱</h1>
+        <p>Record every lovely moment | 记录每一只小可爱的专属时光</p>
+    </header>
+
+    <!-- 猫咪档案区域 -->
+    <section class="cat-section">
+        <div class="section-title">
+            <h2>Cat Profiles | 猫咪档案</h2>
+            <hr>
+        </div>
+
+        <div class="cat-container">
+            <!-- 第一只猫咪卡片 -->
+            <div class="cat-card">
+                <img src="档案1.jpg" alt="猫咪1" class="cat-img">
+                <div class="cat-info">
+                    <h3>Nini | 肉泥</h3>
+                    <p><strong>Age | 年龄：</strong>6岁</p>
+                    <p><strong>Breed | 品种：</strong>British Shorthair (Blue) | 英短蓝猫</p>
+                    <p><strong>Birthday | 生日：</strong>2019.12.1</p>
+                    <p><strong>Personality | 性格：</strong></p>
+                    <span class="tag">Cool | 高冷boy</span>
+                    <span class="tag">Food Lover | 干饭王</span>
+                    <span class="tag">Timid | 胆小鬼</span>
+                    <p class="fun-fact"><strong>Fun Fact | 小趣事：</strong>A total sucker for Jiangjiang | 是肉酱的忠实舔狗</p>
+                </div>
+            </div>
+
+            <!-- 第二只猫咪卡片 -->
+            <div class="cat-card">
+                <img src="档案2.jpg" alt="猫咪2" class="cat-img">
+                <div class="cat-info">
+                    <h3>Jiangjiang | 肉酱</h3>
+                    <p><strong>Age | 年龄：</strong>6岁</p>
+                    <p><strong>Breed | 品种：</strong>British Shorthair (Blue) | 英短蓝猫</p>
+                    <p><strong>Birthday | 生日：</strong>2019.12.24</p>
+                    <p><strong>Personality | 性格：</strong></p>
+                    <span class="tag">Destructive | 拆家能手</span>
+                    <span class="tag">Autism | 自闭</span>
+                    <span class="tag">Clingy | 粘人精</span>
+                    <p class="fun-fact"><strong>Fun Fact | 小趣事：</strong>Loves moping by the curtains alone | 喜欢对着窗帘自闭</p>
+                </div>
+            </div>
+
+            <!-- 第三只猫咪卡片 -->
+            <div class="cat-card">
+                <img src="档案3.png" alt="猫咪3" class="cat-img">
+                <div class="cat-info">
+                    <h3>Momo | 肉沫</h3>
+                    <p><strong>Age | 年龄：</strong>2 years | 2个月</p>
+                    <p><strong>Breed | 品种：</strong>Munchkin | 米努特猫</p>
+                    <p><strong>Birthday | 生日：</strong>2024.3.25</p>
+                    <p><strong>Personality | 性格：</strong></p>
+                    <span class="tag">Naughty | 调皮</span>
+                    <span class="tag">Fierce | 奶凶</span>
+                    <span class="tag">Stubborn | 倔强</span>
+                    <p class="fun-fact"><strong>Fun Fact | 小趣事：</strong>Always licks itself into a messy little cat | 总是把自己舔成一只潦草小猫</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视频模块区域 -->
+    <section class="video-section">
+        <div class="section-title">
+            <h2>Cat Videos | 猫咪日常视频</h2>
+            <hr>
+        </div>
+
+        <div class="video-container">
+            <video controls class="cat-video">
+                <source src="底部视频.mp4" type="video/mp4">
+                你的浏览器不支持视频播放，请升级浏览器或更换设备查看 | Your browser does not support video playback. Please update your browser or change devices.
+            </video>
+            <p class="video-desc">Daily life of three cats | 三只猫咪的日常瞬间</p>
+        </div>
+    </section>
+
+    <!-- 轮播+弹窗功能JavaScript -->
+    <script>
+        // ===================== 弹窗功能 =====================
+        // 弹窗配置：3张展示图片和对应提示语
+        const popupConfig = [
+            {
+                img: "弹窗图1.jpg",
+                text: "Hi！看看我性感的大PP！😺 "
+            },
+            {
+                img: "弹窗图2.jpg",
+                text: "是我～🧡我的睡姿优美吗"
+            },
+            {
+                img: "弹窗图3.jpg",
+                text: "还是我～💙 你把我吵醒了！"
+            }
+        ];
+        let popupClickCount = 0; // 弹窗点击计数
+        const popupOverlay = document.getElementById('popupOverlay');
+        const popupImg = document.getElementById('popupImg');
+        const popupText = document.getElementById('popupText');
+        const popupCloseBtn = document.getElementById('popupCloseBtn');
+
+        // 弹窗点击关闭逻辑
+        popupCloseBtn.addEventListener('click', () => {
+            popupClickCount++;
+            // 前2次点击：切换图片和提示语
+            if (popupClickCount < popupConfig.length) {
+                popupImg.src = popupConfig[popupClickCount].img;
+                popupText.textContent = popupConfig[popupClickCount].text;
+            } else {
+                // 第3次点击：关闭弹窗
+                popupOverlay.style.display = 'none';
+                // 重置计数（可选：刷新页面后重新触发弹窗）
+                popupClickCount = 0;
+            }
+        });
+
+        // ===================== 轮播功能 =====================
+        // ===================== 轮播功能 - 简化修复版 =====================
+const slideTime = 3000; // 自动轮播间隔（3秒）
+const showCount = 3;    // 每页显示3张
+const track = document.getElementById('carouselTrack');
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const items = track.querySelectorAll('.carousel-item');
+let currentIndex = 0;
+let autoPlayTimer;
+
+// 初始化轮播（页面加载完成后执行）
+window.addEventListener('load', () => {
+    // 计算单张图片宽度（包含间距）
+    const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(track).gap);
+    
+    // 移动轮播轨道
+    function moveToIndex(index) {
+        // 边界处理：不能小于0，不能超过最大页数
+        const maxIndex = items.length - showCount;
+        currentIndex = Math.max(0, Math.min(index, maxIndex));
+        // 移动距离 = 当前索引 * 单张图片宽度
+        track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+    }
+
+    // 下一页
+    function nextSlide() {
+        moveToIndex(currentIndex + 1);
+    }
+
+    // 上一页
+    function prevSlide() {
+        moveToIndex(currentIndex - 1);
+    }
+
+    // 自动轮播
+    function startAutoPlay() {
+        autoPlayTimer = setInterval(nextSlide, slideTime);
+    }
+
+    // 暂停自动轮播
+    function stopAutoPlay() {
+        clearInterval(autoPlayTimer);
+    }
+
+    // 绑定事件
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+    // 鼠标悬停暂停，离开继续
+    document.querySelector('.carousel-container').addEventListener('mouseenter', stopAutoPlay);
+    document.querySelector('.carousel-container').addEventListener('mouseleave', startAutoPlay);
+
+    // 启动自动轮播
+    startAutoPlay();
+
+    // 窗口大小变化时重新计算
+    window.addEventListener('resize', () => {
+        const newItemWidth = items[0].offsetWidth + parseInt(getComputedStyle(track).gap);
+        track.style.transform = `translateX(-${currentIndex * newItemWidth}px)`;
+    });
+});
+    </script>
+</body>
+</html>
