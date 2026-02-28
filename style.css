@@ -23,12 +23,19 @@ body {
     object-fit: contain;
 }
 
-/* 新增：独立标题模块样式（大图和轮播之间） */
+/* 新增：独立标题模块样式（大图和轮播之间）- 修正居中 */
 .main-title-section {
     background-color: #f8f5f0;
     padding: 2.5rem 1rem; /* 上下2.5rem，左右1rem，留出足够空间 */
-    text-align: center;
+    text-align: center; /* 核心：文字水平居中 */
     margin: 1rem 0; /* 与上下模块的间距 */
+    width: 100%; /* 确保占满宽度 */
+}
+
+.main-title-content {
+    /* 新增：确保容器本身也居中，适配所有屏幕 */
+    margin: 0 auto;
+    max-width: 1200px; /* 和轮播模块宽度一致，视觉更统一 */
 }
 
 .main-title-content h1 {
@@ -37,12 +44,17 @@ body {
     color: #8b5a2b;
     line-height: 1.5;
     margin-bottom: 1rem;
+    /* 确保标题文字本身居中 */
+    text-align: center;
 }
 
 .main-title-content p {
     font-size: 1.1rem;
     color: #666;
     font-weight: 400;
+    /* 确保副标题文字本身居中 */
+    text-align: center;
+    margin: 0 auto; /* 兜底：适配特殊情况 */
 }
 
 /* 弹窗样式 */
