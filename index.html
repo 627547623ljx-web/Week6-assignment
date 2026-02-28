@@ -4,31 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Three Cats | 我家的三只猫主子</title>
-    <!-- 链接 CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- 头部横幅 -->
+    <header class="header-banner">
+        <img src="banner.jpg" alt="三只猫咪合影" class="banner-img" loading="lazy">
+        <div class="banner-text">
+            <h1>🐱 My Three Cats | 我家的三只猫主子 🐱</h1>
+            <p>Record every lovely moment | 记录每一只小可爱的专属时光</p>
+        </div>
+    </header>
 
-    <!-- 弹窗结构 (必须存在，否则 JS 找不到元素) -->
+    <!-- 弹窗模块 -->
     <div id="popupOverlay" class="popup-overlay">
-        <div class="popup-container">
-            <div class="popup-img-box">
-                <img id="popupImg" src="" alt="猫咪弹窗" class="popup-img">
-            </div>
+        <div class="popup-content">
+            <img id="popupImg" src="" alt="猫咪弹窗" class="popup-img" loading="lazy">
             <p id="popupText" class="popup-text"></p>
             <button id="popupCloseBtn" class="popup-close-btn">关闭</button>
         </div>
     </div>
-
-    <!-- 顶部大图 -->
-    <section class="hero-section">
-        <img src="顶部大图.jpg" alt="三只猫咪的大合照" class="hero-img">
-    </section>
-
-    <header>
-        <h1>🐱 My Three Cats | 我家的三只猫主子 🐱</h1>
-        <p>Record every lovely moment | 记录每一只小可爱的专属时光</p>
-    </header>
 
     <!-- 轮播图区域 -->
     <section class="carousel-section">
@@ -36,26 +31,55 @@
             <h2>Cat Moments | 猫咪瞬间</h2>
             <hr>
         </div>
-        
         <div class="carousel-container">
             <button class="carousel-btn prev-btn" id="prevBtn">←</button>
             <div class="carousel-view">
                 <div class="carousel-track" id="carouselTrack">
-                    <div class="carousel-item"><img src="轮播图1.png" alt="轮播图1" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图2.png" alt="轮播图2" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图3.jpg" alt="轮播图3" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图4.jpg" alt="轮播图4" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图5.jpg" alt="轮播图5" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图6.jpg" alt="轮播图6" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图7.jpg" alt="轮播图7" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图8.jpg" alt="轮播图8" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图9.jpg" alt="轮播图9" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图10.jpg" alt="轮播图10" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图11.jpg" alt="轮播图11" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图12.jpg" alt="轮播图12" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图13.jpg" alt="轮播图13" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图14.png" alt="轮播图14" class="carousel-img"></div>
-                    <div class="carousel-item"><img src="轮播图15.png" alt="轮播图15" class="carousel-img"></div>
+                    <div class="carousel-item">
+                        <img src="轮播图1.png" alt="猫咪照片1" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图2.png" alt="猫咪照片2" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图3.png" alt="猫咪照片3" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图4.png" alt="猫咪照片4" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图5.png" alt="猫咪照片5" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图6.png" alt="猫咪照片6" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图7.png" alt="猫咪照片7" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图8.png" alt="猫咪照片8" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图9.png" alt="猫咪照片9" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图10.png" alt="猫咪照片10" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图11.png" alt="猫咪照片11" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图12.png" alt="猫咪照片12" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图13.png" alt="猫咪照片13" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图14.png" alt="猫咪照片14" class="carousel-img" loading="lazy">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="轮播图15.png" alt="猫咪照片15" class="carousel-img" loading="lazy">
+                    </div>
                 </div>
             </div>
             <button class="carousel-btn next-btn" id="nextBtn">→</button>
@@ -63,86 +87,87 @@
     </section>
 
     <!-- 猫咪档案区域 -->
-    <section class="cat-profiles">
+    <section class="cat-profiles-section">
         <div class="section-title">
             <h2>Cat Profiles | 猫咪档案</h2>
             <hr>
         </div>
-
-        <div class="cat-container">
-            <!-- 肉泥 -->
-            <article class="cat-card">
-                <img src="档案1.jpg" alt="肉泥" class="cat-img">
-                <div class="cat-info">
+        <div class="cat-profiles">
+            <!-- 肉泥档案 -->
+            <div class="cat-profile-card">
+                <img src="肉泥.jpg" alt="肉泥" class="profile-img" loading="lazy">
+                <div class="profile-info">
                     <h3>Nini | 肉泥</h3>
                     <p><strong>Age | 年龄：</strong>6岁</p>
                     <p><strong>Breed | 品种：</strong>British Shorthair (Blue) | 英短蓝猫</p>
                     <p><strong>Birthday | 生日：</strong>2019.12.1</p>
                     <p><strong>Personality | 性格：</strong></p>
-                    <div>
+                    <div class="personality-tags">
                         <span class="tag">Cool | 高冷boy</span>
                         <span class="tag">Food Lover | 干饭王</span>
                         <span class="tag">Timid | 胆小鬼</span>
                     </div>
-                    <p class="fun-fact"><strong>Fun Fact | 小趣事：</strong>A total sucker for Jiangjiang | 是肉酱的忠实舔狗</p>
+                    <p><strong>Favorite Food | 最爱：</strong>金枪鱼罐头</p>
+                    <p><strong>Fun Fact | 小趣事：</strong>A total sucker for Jiangjiang | 是肉酱的忠实舔狗</p>
                 </div>
-            </article>
+            </div>
 
-            <!-- 肉酱 -->
-            <article class="cat-card">
-                <img src="档案2.jpg" alt="肉酱" class="cat-img">
-                <div class="cat-info">
+            <!-- 肉酱档案 -->
+            <div class="cat-profile-card">
+                <img src="肉酱.jpg" alt="肉酱" class="profile-img" loading="lazy">
+                <div class="profile-info">
                     <h3>Jiangjiang | 肉酱</h3>
                     <p><strong>Age | 年龄：</strong>6岁</p>
                     <p><strong>Breed | 品种：</strong>British Shorthair (Blue) | 英短蓝猫</p>
                     <p><strong>Birthday | 生日：</strong>2019.12.24</p>
                     <p><strong>Personality | 性格：</strong></p>
-                    <div>
+                    <div class="personality-tags">
                         <span class="tag">Destructive | 拆家能手</span>
                         <span class="tag">Autism | 自闭</span>
                         <span class="tag">Clingy | 粘人精</span>
                     </div>
-                    <p class="fun-fact"><strong>Fun Fact | 小趣事：</strong>Loves moping by the curtains alone | 喜欢对着窗帘自闭</p>
+                    <p><strong>Favorite Food | 最爱：</strong>鸡胸肉泥</p>
+                    <p><strong>Fun Fact | 小趣事：</strong>Loves moping by the curtains alone | 喜欢对着窗帘自闭</p>
                 </div>
-            </article>
+            </div>
 
-            <!-- 肉沫 -->
-            <article class="cat-card">
-                <img src="档案3.png" alt="肉沫" class="cat-img">
-                <div class="cat-info">
+            <!-- 肉沫档案 -->
+            <div class="cat-profile-card">
+                <img src="肉沫.jpg" alt="肉沫" class="profile-img" loading="lazy">
+                <div class="profile-info">
                     <h3>Momo | 肉沫</h3>
                     <p><strong>Age | 年龄：</strong>2个月</p>
                     <p><strong>Breed | 品种：</strong>Munchkin | 米努特猫</p>
                     <p><strong>Birthday | 生日：</strong>2024.3.25</p>
                     <p><strong>Personality | 性格：</strong></p>
-                    <div>
+                    <div class="personality-tags">
                         <span class="tag">Naughty | 调皮</span>
                         <span class="tag">Fierce | 奶凶</span>
                         <span class="tag">Stubborn | 倔强</span>
                     </div>
-                    <p class="fun-fact"><strong>Fun Fact | 小趣事：</strong>Always licks itself into a messy little cat | 总是把自己舔成一只潦草小猫</p>
+                    <p><strong>Favorite Food | 最爱：</strong>羊奶粉</p>
+                    <p><strong>Fun Fact | 小趣事：</strong>Always licks itself into a messy little cat | 总是把自己舔成潦草小猫</p>
                 </div>
-            </article>
+            </div>
         </div>
     </section>
 
-    <!-- 视频区域 -->
-    <section class="video-section">
+    <!-- 猫咪视频区域 -->
+    <section class="cat-videos-section">
         <div class="section-title">
             <h2>Cat Videos | 猫咪日常视频</h2>
             <hr>
         </div>
         <div class="video-container">
-            <video class="cat-video" controls preload="metadata">
-                <source src="底部视频.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
+            <video src="猫咪日常.mp4" class="cat-video" controls poster="视频封面.jpg" loading="lazy">
+                您的浏览器不支持视频播放
             </video>
-            <p class="video-desc">Daily life of three cats | 三只猫咪的日常瞬间</p>
+            <p class="video-desc">Daily life of three cats | 三只猫咪的日常瞬间（拍摄于2024.3）</p>
         </div>
     </section>
 
-    <!-- ⚠️ 关键：链接外部 JS 文件，文件名必须完全一致 (区分大小写) -->
+
+    <!-- JS 文件引入 -->
     <script src="tc.js"></script>
 </body>
 </html>
-
