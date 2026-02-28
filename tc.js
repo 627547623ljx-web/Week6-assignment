@@ -25,50 +25,58 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 检查元素是否存在，防止报错
     if (popupOverlay && popupImg && popupText && popupCloseBtn) {
-        // ========== 核心修改：按顺序轮播弹窗 ==========
-        // 从localStorage读取上一次显示的索引，默认0（首次加载）
-        let lastIndex = parseInt(localStorage.getItem('lastPopupIndex')) || 0;
-        // 计算本次要显示的索引（循环：0→1→2→0→...）
-        const currentIndex = (lastIndex + 1) % popupConfig.length;
-        
-        // 立即更新本次索引到localStorage（下次刷新用）
-        localStorage.setItem('lastPopupIndex', currentIndex);
+        // 当前显示的弹窗索引（初始为0，即第一张）
+        let currentPopupIndex = 0;
 
-        // 读取当前要显示的弹窗配置
-        const currentPopup = popupConfig[currentIndex];
-        
-        // 设置图片和文字（增加图片加载容错）
-        popupImg.src = currentPopup.img;
-        popupImg.alt = "猫咪弹窗";
-        // 图片加载失败时的兜底处理
-        popupImg.onerror = () => {
-            console.error(`图片加载失败：${currentPopup.img}，请检查路径/文件名`);
-            // 加载失败则切换到下一张
-            const fallbackIndex = (currentIndex + 1) % popupConfig.length;
-            popupImg.src = popupConfig[fallbackIndex].img;
-            popupText.textContent = popupConfig[fallbackIndex].text;
+        // 初始化显示第一张弹窗
+        const initPopup = () => {
+            const currentPopup = popupConfig[currentPopupIndex];
+            popupImg.src = currentPopup.img;
+            popupImg.alt = "猫咪弹窗";
+            // 图片加载失败容错
+            popupImg.onerror = () => {
+                console.error(`图片加载失败：${currentPopup.img}，请检查路径/文件名`);
+            };
+            popupText.textContent = currentPopup.text;
+            // 显示弹窗
+            setTimeout(() => {
+                popupOverlay.classList.add('active');
+            }, 500);
         };
-        popupText.textContent = currentPopup.text;
 
-        // 延迟 500ms 显示，确保动画流畅
-        setTimeout(() => {
-            popupOverlay.classList.add('active');
-        }, 500);
-
-        // 关闭弹窗函数（仅隐藏，不记录"关闭后不显示"状态）
-        function closePopup() {
+        // 关闭/切换弹窗函数
+        function closeOrSwitchPopup() {
+            // 隐藏当前弹窗（过渡动画）
             popupOverlay.classList.remove('active');
-            // 彻底删除：不再记录"关闭后不显示"的状态
-            // localStorage.setItem('catPopupClosed', 'true');
+            
+            // 延迟切换内容（等动画结束）
+            setTimeout(() => {
+                // 索引+1，切换到下一张
+                currentPopupIndex++;
+                // 判断是否还有下一张弹窗
+                if (currentPopupIndex < popupConfig.length) {
+                    // 还有下一张：更新内容并重新显示
+                    const nextPopup = popupConfig[currentPopupIndex];
+                    popupImg.src = nextPopup.img;
+                    popupText.textContent = nextPopup.text;
+                    popupOverlay.classList.add('active');
+                } else {
+                    // 三张都显示完：真正关闭，刷新后重置
+                    currentPopupIndex = 0; // 重置索引，刷新后重新开始
+                }
+            }, 300); // 对应CSS中弹窗的过渡动画时长（0.3s）
         }
 
-        // 绑定关闭按钮点击事件
-        popupCloseBtn.addEventListener('click', closePopup);
+        // 初始化显示第一张弹窗（刷新后也会执行）
+        initPopup();
 
-        // 绑定点击遮罩层关闭事件
+        // 绑定关闭按钮点击事件（切换/关闭弹窗）
+        popupCloseBtn.addEventListener('click', closeOrSwitchPopup);
+
+        // 绑定点击遮罩层事件（和按钮逻辑一致）
         popupOverlay.addEventListener('click', (e) => {
             if (e.target === popupOverlay) {
-                closePopup();
+                closeOrSwitchPopup();
             }
         });
     } else {
