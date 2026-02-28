@@ -25,42 +25,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 检查元素是否存在，防止报错
     if (popupOverlay && popupImg && popupText && popupCloseBtn) {
-        // 【核心修改1】移除 localStorage 状态记录，确保每次刷新都随机显示
-        // 删掉原有的 hasClosedPopup 检查逻辑
+        // ========== 核心修改：按顺序轮播弹窗 ==========
+        // 从localStorage读取上一次显示的索引，默认0（首次加载）
+        let lastIndex = parseInt(localStorage.getItem('lastPopupIndex')) || 0;
+        // 计算本次要显示的索引（循环：0→1→2→0→...）
+        const currentIndex = (lastIndex + 1) % popupConfig.length;
         
-        if (popupConfig.length > 0) {
-            // 【核心修改2】强化随机数生成，避免边界值问题
-            // 生成 0 到 2（包含）的随机整数，确保覆盖所有3个配置
-            const randomIndex = Math.floor(Math.random() * popupConfig.length);
-            const randomPopup = popupConfig[randomIndex];
-            
-            // 【新增】调试日志，确认随机索引和选中的配置（上线可删除）
-            console.log('当前随机索引：', randomIndex);
-            console.log('选中的弹窗配置：', randomPopup);
-            
-            // 设置图片源和文字
-            popupImg.src = randomPopup.img;
-            popupImg.alt = "猫咪弹窗";
-            // 【新增】图片加载失败容错
-            popupImg.onerror = () => {
-                console.error(`图片加载失败：${randomPopup.img}，请检查路径/文件名`);
-                // 加载失败时自动切换下一张
-                const fallbackIndex = (randomIndex + 1) % popupConfig.length;
-                popupImg.src = popupConfig[fallbackIndex].img;
-                popupText.textContent = popupConfig[fallbackIndex].text;
-            };
-            popupText.textContent = randomPopup.text;
+        // 立即更新本次索引到localStorage（下次刷新用）
+        localStorage.setItem('lastPopupIndex', currentIndex);
 
-            // 延迟 500ms 显示，确保动画流畅
-            setTimeout(() => {
-                popupOverlay.classList.add('active');
-            }, 500);
-        }
+        // 读取当前要显示的弹窗配置
+        const currentPopup = popupConfig[currentIndex];
+        
+        // 设置图片和文字（增加图片加载容错）
+        popupImg.src = currentPopup.img;
+        popupImg.alt = "猫咪弹窗";
+        // 图片加载失败时的兜底处理
+        popupImg.onerror = () => {
+            console.error(`图片加载失败：${currentPopup.img}，请检查路径/文件名`);
+            // 加载失败则切换到下一张
+            const fallbackIndex = (currentIndex + 1) % popupConfig.length;
+            popupImg.src = popupConfig[fallbackIndex].img;
+            popupText.textContent = popupConfig[fallbackIndex].text;
+        };
+        popupText.textContent = currentPopup.text;
 
-        // 关闭弹窗函数（仅隐藏，不记录状态）
+        // 延迟 500ms 显示，确保动画流畅
+        setTimeout(() => {
+            popupOverlay.classList.add('active');
+        }, 500);
+
+        // 关闭弹窗函数（仅隐藏，不记录"关闭后不显示"状态）
         function closePopup() {
             popupOverlay.classList.remove('active');
-            // 【核心修改3】删除 localStorage 记录，避免关闭后不再显示
+            // 彻底删除：不再记录"关闭后不显示"的状态
             // localStorage.setItem('catPopupClosed', 'true');
         }
 
@@ -77,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('错误：未找到弹窗相关的 HTML 元素，请检查 index.html 结构。');
     }
 
-    // ================= 轮播图逻辑 =================
+    // ================= 轮播图逻辑（保持不变） =================
     const track = document.getElementById('carouselTrack');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
