@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- 头部横幅（仅保留图片，移除文字） -->
+    <!-- 头部横幅（仅保留图片） -->
     <header class="header-banner">
         <img src="顶部大图.jpg" alt="三只猫咪合影" class="banner-img" loading="lazy">
     </header>
 
-    <!-- 新增：独立的标题模块（放在大图和轮播之间） -->
+    <!-- 独立的标题模块 -->
     <section class="main-title-section">
         <div class="main-title-content">
             <h1>🐱 My Three Cats | 我家的三只猫主子 🐱</h1>
@@ -156,14 +156,15 @@
         </div>
     </section>
 
-    <!-- 猫咪视频区域 -->
+    <!-- 猫咪视频区域（核心修改：移除poster属性） -->
     <section class="cat-videos-section">
         <div class="section-title">
             <h2>Cat Videos | 猫咪日常视频</h2>
             <hr>
         </div>
         <div class="video-container">
-            <video src="底部视频.mp4" class="cat-video" controls poster="弹窗图1.jpg" loading="lazy">
+            <!-- 移除poster="弹窗图1.jpg"，浏览器自动用视频第一帧做封面 -->
+            <video src="底部视频.mp4" class="cat-video" controls loading="lazy">
                 您的浏览器不支持视频播放
             </video>
             <p class="video-desc">Daily life of three cats | 三只猫咪的日常瞬间（拍摄于2024.3）</p>
