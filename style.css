@@ -12,28 +12,38 @@ body {
     line-height: 1.6;
 }
 
-/* 头部横幅样式 */
+/* 头部横幅样式 - 核心修复 */
 .header-banner {
     position: relative;
     width: 100%;
-    height: 400px;
-    overflow: hidden;
+    /* 修复1：高度改为auto，让图片自适应，避免裁剪 */
+    height: auto;
+    /* 修复2：移除overflow:hidden，防止图片被截断 */
+    /* overflow: hidden; */
 }
 
 .banner-img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    /* 修复3：高度改为auto，保持图片原始比例 */
+    height: auto;
+    /* 可选：如果希望图片占满宽度且保持比例，用object-fit: cover，但不裁剪 */
+    object-fit: contain;
 }
 
 .banner-text {
     position: absolute;
+    /* 修复4：调整top为50%，确保垂直居中，且不偏移 */
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    /* 修复5：增加z-index，确保文字在图片上方且不被遮挡 */
+    z-index: 10;
+    /* 修复6：限制文字宽度，避免超出图片 */
+    width: 90%;
+    max-width: 800px;
 }
 
 .banner-text h1 {
@@ -41,11 +51,19 @@ body {
     font-weight: 700;
     line-height: 1.5;
     margin-bottom: 1rem;
+    /* 修复7：增加文字背景半透明，提升可读性，且不覆盖图片细节 */
+    background-color: rgba(0,0,0,0.3);
+    padding: 10px 20px;
+    border-radius: 8px;
 }
 
 .banner-text p {
     font-size: 1.2rem;
     font-weight: 400;
+    /* 同上，增加半透明背景 */
+    background-color: rgba(0,0,0,0.2);
+    padding: 5px 10px;
+    border-radius: 4px;
 }
 
 /* 弹窗样式 */
@@ -334,7 +352,8 @@ body {
 
 @media (max-width: 480px) {
     .header-banner {
-        height: 250px;
+        /* 移动端也保持auto，避免裁剪 */
+        height: auto;
     }
 
     .carousel-item {
@@ -345,4 +364,3 @@ body {
         height: 250px;
     }
 }
-
