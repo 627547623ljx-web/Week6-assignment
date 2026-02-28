@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* 优化字体栈，但保留微软雅黑优先 */
     font-family: "微软雅黑", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -193,7 +192,7 @@ h2 {
     width: fit-content;
 }
 
-/* 桌面端：显示3张 (保留原逻辑) */
+/* 桌面端：显示3张 */
 .carousel-item {
     flex: 0 0 calc((100% - 32px) / 3);
     box-sizing: border-box;
@@ -313,7 +312,7 @@ footer {
         padding: 1rem;
     }
 
-    /* 修复冲突：手机端强制显示1张 (90%宽度) */
+    /* 手机端强制显示1张 */
     .carousel-item {
         flex: 0 0 90%; 
     }
