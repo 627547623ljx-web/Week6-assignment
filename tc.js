@@ -25,18 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 检查元素是否存在，防止报错
     if (popupOverlay && popupImg && popupText && popupCloseBtn) {
-        
-        // 检查用户是否已经关闭过弹窗 (利用 localStorage)
-        const hasClosedPopup = localStorage.getItem('catPopupClosed');
-
-        // 如果没关闭过，且有配置数据，则显示弹窗
-        if (!hasClosedPopup && popupConfig.length > 0) {
+        // 移除 localStorage 状态检查，每次刷新都显示弹窗
+        if (popupConfig.length > 0) {
             // 随机选择一个弹窗内容
             const randomIndex = Math.floor(Math.random() * popupConfig.length);
             const randomPopup = popupConfig[randomIndex];
             
             // 设置图片源和文字
-            // 注意：如果图片在 GitHub 上裂开，请检查这里的文件名和实际文件是否大小写一致
             popupImg.src = randomPopup.img;
             popupImg.alt = "猫咪弹窗";
             popupText.textContent = randomPopup.text;
@@ -47,11 +42,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         }
 
-        // 关闭弹窗函数
+        // 关闭弹窗函数（仅移除active类，不再记录localStorage）
         function closePopup() {
             popupOverlay.classList.remove('active');
-            // 记录状态，刷新页面后不再弹出
-            localStorage.setItem('catPopupClosed', 'true');
+            // 注释/删除 localStorage 记录逻辑，实现刷新重新显示
+            // localStorage.setItem('catPopupClosed', 'true');
         }
 
         // 绑定关闭按钮点击事件
